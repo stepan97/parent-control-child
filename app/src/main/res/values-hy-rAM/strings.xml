@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Continue">Շարունակել</string>
+    <string name="enter_10_digit_code_to_continue">Մուտքագրեք երեխայի անունն ու 10 թվանշանից բաղկացած կոդը</string>
+    <string name="please_select_what_you_want_to_track">Ընտրեք, թե ինչ եք ցանկանում տեսնել։</string>
+    <string name="location">Գտնվելու վայրը</string>
+    <string name="call_log">Զանգերը</string>
+    <string name="sms_log">Նամակները</string>
+    <string name="ok">ԼԱՎ</string>
+    <string name="make_sure_for_config">Համոզվեք, որ Դուք նշել եք այն ամենը, ինչ ցանկանում եք տեսնել։ ՀԱՍՏԱՏԵԼ սեղմելուց հետո այս ծրագիրը կդառնա ՛թաքնված՛ և Դուք չեք կարող այն բացել․․․</string>
+    <string name="submit">Հաստատել</string>
+    <string name="please_enter_code">Մուտքագրեք 10 թվանշանից բաղկացած կոդը</string>
+    <string name="no_name">Անանուն</string>
+    <string name="title_activity_login">Մուտք</string>
+    <string name="network_error">Ինտերնետի խափանում։ Փորձեք կրկին։</string>
+    <string name="notification_title">Ուշադրություն !</string>
+    <string name="notification_content">Քո ծնողները ԱՐԳԵԼԵԼ ԵՆ քեզ լինել այս տեղանքում։ Հեռացիր այստեղից։</string>
+    <string name="final_message">Հաստատել կոճակը սեղմելուց հետո այս հեռախոսը սկսելու է ուղարկել ձեզ ինֆորմացիա իր գտնվելու վայրի, զանգերի և հաղորդագրությունների մասին։ Սեղմեք Հաստատել կոճակը և հավելվածը կդառնա \"թաքնված\"։ Համոզվեք, որ ձեր երեխան չի ջնջել ծրագիրը կամ անջատել իր հեռախոսը, այդ դեպքերում դուք ինֆորմացիա չեք կարող ստանալ։</string>
+    <string name="dear_parent">Հարգելի ծնող,</string>
+    <string name="child_name">Երեխայի անունը</string>
+    <string name="activation_code">10 նիշանոց կոդը</string>
+</resources>

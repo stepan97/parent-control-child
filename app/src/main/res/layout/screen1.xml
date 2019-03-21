@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/screen1_enter_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="@string/enter_10_digit_code_to_continue"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/child_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/screen1_enter_code"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:hint="@string/child_name"
+                android:textSize="20sp"
+                android:inputType="textPersonName"
+                android:imeOptions="actionDone"/>
+
+            <EditText
+                android:id="@+id/activation_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/child_name_et"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:hint="@string/activation_code"
+                android:textSize="20sp"
+                android:inputType="number"
+                android:imeOptions="actionDone"/>
+
+            <Button
+                android:id="@+id/continue_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/activation_code_et"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/submit_button_selector"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/Continue"
+                android:textColor="@color/white"
+                android:textAllCaps="false" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.example.userasef.parentcontrolappchild.view.Loader
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+    </com.example.userasef.parentcontrolappchild.view.Loader>
+
+</RelativeLayout>

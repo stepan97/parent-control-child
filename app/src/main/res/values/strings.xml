@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name" translatable="false">Parent Control App Child</string>
+    <string name="Continue">Conitnue</string>
+    <string name="enter_10_digit_code_to_continue">Enter your child name and 10-digit code to continue</string>
+    <string name="activation_code">10-digit code</string>
+    <string name="please_select_what_you_want_to_track">Please select what you want to track:</string>
+    <string name="location">Location</string>
+    <string name="call_log">Call Log</string>
+    <string name="sms_log">SMS Log</string>
+    <string name="ok">OK</string>
+    <string name="make_sure_for_config">Make sure your configuration is correct, after clicking SUBMIT the application will be hidden...</string>
+    <string name="submit">Submit</string>
+    <string name="please_enter_code">Please enter 10 digit code</string>
+    <string name="incoming" translatable="false">INCOMING</string>
+    <string name="outgoing" translatable="false">OUTGOING</string>
+    <string name="rejected" translatable="false">REJECTED</string>
+    <string name="missed" translatable="false">MISSED</string>
+    <string name="no_name">No name</string>
+    <string name="sent" translatable="false">SENT</string>
+    <string name="unknown" translatable="false">UNKNOWN</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="network_error">Network error. Please try again.</string>
+    <string name="channel_name" translatable="false">My Notification Channel Name</string>
+    <string name="channel_description" translatable="false">My Notification Channel Description</string>
+    <string name="notification_title">Attention !</string>
+    <string name="notification_content">Your parents DON\'T ALLOW you to be in this location. Please move from here.</string>
+    <string name="final_message">after clicking Submit button this phone will send you information about it\'s location, calls and messages. Tap submit button and the app will be hidden. And make sure your child does not delete the app or shutdown his/her phone. In those cases you won\'t receive information.</string>
+    <string name="dear_parent">Dear parent,</string>
+    <string name="child_name">Child Name</string>
+    <string name="no_internet">No internet.</string>
+    <string name="must_contain_only_digits">Access code must contain only digits</string>
+</resources>
