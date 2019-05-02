@@ -4,13 +4,20 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.userasef.parentcontrolappchild.Screen1_Page.Screen1_Fragment;
 import com.example.userasef.parentcontrolappchild.utils.ActivityUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -103,5 +110,16 @@ public class MainActivity extends AppCompatActivity {
 //                    MY_PERMISSIONS_REQUEST_RECEIVE_SMS);
 //        }
         // 2182203046
+    }
+
+    private void f() {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String newToken = instanceIdResult.getToken();
+                        Log.d("TAGO", "TOKEN: " + newToken);
+                    }
+                });
     }
 }

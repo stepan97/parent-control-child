@@ -1,39 +1,45 @@
 {
   "project_info": {
-    "project_number": "1016558540267",
-    "firebase_url": "https://parent-control-app-child-a43b0.firebaseio.com",
-    "project_id": "parent-control-app-child-a43b0",
-    "storage_bucket": "parent-control-app-child-a43b0.appspot.com"
+    "project_number": "454327117913",
+    "firebase_url": "https://parent-control-app-2a2c6.firebaseio.com",
+    "project_id": "parent-control-app-2a2c6",
+    "storage_bucket": "parent-control-app-2a2c6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1016558540267:android:3fc7629e4a8dc405",
+        "mobilesdk_app_id": "1:454327117913:android:3fc7629e4a8dc405",
         "android_client_info": {
           "package_name": "com.example.userasef.parentcontrolappchild"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1016558540267-jr428gn5jbiotdm9evvm7aace6ukietr.apps.googleusercontent.com",
+          "client_id": "454327117913-a7dvrj0rcgaogr7cqn7tvu9f6tjbof3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.userasef.parentcontrolappchild",
+            "certificate_hash": "e77de2efab7c29d7e36d0cc312a7208703b26430"
+          }
+        },
+        {
+          "client_id": "454327117913-l4rd8evj3llduntal2f95u76dia22g0p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB1ujlRsy0KVQwo0NgGSICdI3oOeyOAXmI"
+          "current_key": "AIzaSyC2Re-2-siyouC8XML_IExVDGkxObkZ9ys"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454327117913-l4rd8evj3llduntal2f95u76dia22g0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

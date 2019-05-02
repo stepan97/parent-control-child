@@ -48,6 +48,14 @@
             <!--android:name=".services.UpdateService"-->
             <!--android:enabled="true" />-->
 
+        <service
+            android:name=".firebaseForNotifications.MyFirebase"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <service android:name=".services.MyService"
             android:enabled="true"/>
 
