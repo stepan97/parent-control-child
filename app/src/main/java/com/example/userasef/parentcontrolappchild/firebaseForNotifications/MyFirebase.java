@@ -3,6 +3,7 @@ package com.example.userasef.parentcontrolappchild.firebaseForNotifications;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.example.userasef.parentcontrolappchild.services.MyNotification;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -31,7 +32,8 @@ public class MyFirebase extends FirebaseMessagingService {
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getTitle() + " - " + remoteMessage.getNotification().getBody());
+            MyNotification.showNotification(getApplicationContext(), remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
 
     }

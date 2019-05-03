@@ -16,4 +16,7 @@ public interface IChildService {
 
     @POST(ApiEndpoints.CHILDREN_UPLOAD_CHILD_DATA)
     Call<ResponseModel<Void>> uploadData(@Body ChildData data);
+
+    @POST(ApiEndpoints.SAVE_FIREBASE_TOKEN)
+    Call<ResponseModel<Void>> saveFirebaseToken(@Body String token);
 }

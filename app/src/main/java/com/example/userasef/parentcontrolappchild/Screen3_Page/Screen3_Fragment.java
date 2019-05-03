@@ -13,15 +13,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.userasef.parentcontrolappchild.MainActivity;
 import com.example.userasef.parentcontrolappchild.R;
 import com.example.userasef.parentcontrolappchild.kayfo.SmsObserver;
 import com.example.userasef.parentcontrolappchild.services.MyService;
+import com.example.userasef.parentcontrolappchild.view.Loader;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
-public class Screen3_Fragment extends Fragment {
+public class Screen3_Fragment extends Fragment implements IScreen3_Contract.View
+{
 
     private Button submit_btn;
+    private Loader loader;
+    private IScreen3_Contract.Presenter mPresenter;
 
     public static Screen3_Fragment newInstance(){
         Bundle args = new Bundle();
@@ -42,12 +50,14 @@ public class Screen3_Fragment extends Fragment {
 
         initView(view);
         initListeners();
+        mPresenter = new Screen3_Presenter(this, getContext());
 
         return view;
     }
 
     private void initView(View view){
         submit_btn = view.findViewById(R.id.submit_btn);
+        loader = view.findViewById(R.id.loader);
     }
 
     private void initListeners(){
@@ -55,13 +65,16 @@ public class Screen3_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(v.getId() == R.id.submit_btn){
-                    hideApp();
+//                    hideApp();
+                    mPresenter.sendFirebaseToken();
                 }
             }
         });
     }
 
     private void hideApp(){
+
+
 //        Toast.makeText(getContext(), "App Hidden", Toast.LENGTH_SHORT).show();
         Log.d("TAGO", "App hidden");
 
@@ -78,5 +91,20 @@ public class Screen3_Fragment extends Fragment {
 //                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 //
 //        getActivity().finish();
+    }
+
+    @Override
+    public void showErrorMessage(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setLoaderVisibility(int visibility) {
+        loader.setVisibility(visibility);
+    }
+
+    @Override
+    public void goToNextPage() {
+        hideApp();
     }
 }
