@@ -49,8 +49,15 @@ import com.example.userasef.parentcontrolappchild.network.IChildService;
 import com.example.userasef.parentcontrolappchild.utils.Constants;
 import com.example.userasef.parentcontrolappchild.utils.NetworkUtil;
 import com.example.userasef.parentcontrolappchild.utils.PreferencesUtils;
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -62,6 +69,13 @@ import static com.example.userasef.parentcontrolappchild.utils.MyDateUtils.conve
 import static com.example.userasef.parentcontrolappchild.utils.MyDateUtils.getDateHourAgo;
 
 public class MyService extends Service {
+    private static final String TAG = "TAGO";
+
+    // socket events
+    private static final String CHILD_IN_FORBIDDEN_LOCATION = "forbidden_location";
+    private static final String PARENT_ADDED_NEW_FORBIDDEN_LOCATION = "new_forbidden_location";
+    private static final String NEW_CALLS_FROM_CHILD = "new_calls";
+
     private static final long TIME_ = 30 * 60 * 1000; // 0.5 hour
     public static final int LOCATION_UPDATE_MIN_DISTANCE = 1; // 100 meters
     public static final int LOCATION_UPDATE_MIN_TIME = 1000; //60 * 60 * 1000; // 1 hour
@@ -71,10 +85,56 @@ public class MyService extends Service {
     // when UPLOAD_COUNT==3, then upload, to be sure that all 3 data has been saved: calls, sms, locations
     private ChildData childData;
     private static IChildService service;
+    private static Socket mSocket;
+    {
+        try {
+//            IO.Options options = new IO.Options();
+            String token = DataController.getInstance().getUser().getAccessToken();
+            Log.d("TAGO", "TOKEN: " + token);
+//            options.query = token;
+
+            mSocket = IO.socket("https://protected-plateau-74640.herokuapp.com/?query=" + token);
+//            mSocket = IO.socket("http://localhost:3000/");
+        } catch (URISyntaxException e) {
+            Log.d(TAG, "ERROR:" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private Emitter.Listener onNewForbiddenLocation = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            Log.d("TAGO", "PARENT ADDED NEW FORBIDDEN LOCATION: " + args[0]);
+//            Gson gson = new Gson();
+//            JSONObject data = (JSONObject) args[0];
+//            ForbiddenLocation myLatLng = gson.fromJson(data.toString(), ForbiddenLocation.class);
+//
+//            MyDao dao = MyDatabase.getDatabase(getApplicationContext()).myDao();
+//            dao.insertForbiddenLocation(myLatLng);
+        }
+    };
+
+    private Emitter.Listener onConnection = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            Log.d("TAGO", "SOCKET CONNECTED");
+//            Gson gson = new Gson();
+//            JSONObject data = (JSONObject) args[0];
+//            ForbiddenLocation myLatLng = gson.fromJson(data.toString(), ForbiddenLocation.class);
+//
+//            MyDao dao = MyDatabase.getDatabase(getApplicationContext()).myDao();
+//            dao.insertForbiddenLocation(myLatLng);
+        }
+    };
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mSocket.on("connection", onConnection);
+        mSocket.on(PARENT_ADDED_NEW_FORBIDDEN_LOCATION, onNewForbiddenLocation);
+
+        mSocket.connect();
 
         childData = new ChildData();
         mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
@@ -143,6 +203,9 @@ public class MyService extends Service {
         PendingIntent restartServicePI = PendingIntent.getService(
                 getApplicationContext(), 1, restartServiceIntent,
                 PendingIntent.FLAG_ONE_SHOT);
+
+        mSocket.disconnect();
+        mSocket.off("connection", onConnection);
 
         //Restart the service once it has been killed android
         AlarmManager alarmService = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
@@ -577,7 +640,7 @@ public class MyService extends Service {
     private void checkForbiddenLocations(final Location currentLocation){
         // get forbidden locations from db.
         // if current location is near one of them more than 100 meters, show notification
-        final int allowedDistance = 501;
+        final int allowedDistance = 201;
 
         new AsyncTask<Void, Void, ArrayList<ForbiddenLocation>>(){
             @Override

@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true">
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/parent_name_TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/dear_parent"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/final_message_tv"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/parent_name_TextView"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center_horizontal"
-            android:text="@string/final_message"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/submit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/final_message_tv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/submit_button_selector"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/submit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/parent_name_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/dear_parent"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/final_message_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/parent_name_TextView"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/final_message"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/final_message_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/submit_button_selector"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <com.example.userasef.parentcontrolappchild.view.Loader
+    android:id="@+id/loader"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone">
+    </com.example.userasef.parentcontrolappchild.view.Loader>
+
+
+</RelativeLayout>

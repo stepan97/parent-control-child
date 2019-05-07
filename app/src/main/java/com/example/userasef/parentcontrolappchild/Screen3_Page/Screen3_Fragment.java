@@ -65,8 +65,8 @@ public class Screen3_Fragment extends Fragment implements IScreen3_Contract.View
             @Override
             public void onClick(View v) {
                 if(v.getId() == R.id.submit_btn){
-//                    hideApp();
-                    mPresenter.sendFirebaseToken();
+                    hideApp();
+//                    mPresenter.sendFirebaseToken();
                 }
             }
         });
